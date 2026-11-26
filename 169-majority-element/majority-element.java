@@ -1,20 +1,18 @@
-
-import java.util.HashMap;
-
 class Solution {
     public int majorityElement(int[] nums) {
-
-        HashMap<Integer, Integer> map = new HashMap<>();
-
-        for (int i = 0; i < nums.length; i++) {
-
-            map.put(nums[i], map.getOrDefault(nums[i], 0) + 1);
-
-            if (map.get(nums[i]) > nums.length / 2) {
-                return nums[i];
+        int can=0;
+        int c=0;
+        for(int i=0;i<nums.length;i++){
+            if(c==0){
+                can=nums[i];
+            }
+            if(can==nums[i]){
+                c++;
+            }
+            else{
+                c--;
             }
         }
-
-        return -1;
+        return can;
     }
 }
